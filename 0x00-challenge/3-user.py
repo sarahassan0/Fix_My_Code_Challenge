@@ -39,9 +39,9 @@ class User():
         """
         if pwd is None or type(pwd) is not str:
             self.__password = None
-        else:
-            self._password = hashlib.md5(pwd.encode()).hexdigest().lower()
-
+        else:    
+            self.__password = hashlib.md5(pwd.encode()).hexdigest().lower() # the mistake was <self._password> gettting private key incorrectly
+                                                                            # and comparing with .upper() instead of .lower()
     def is_valid_password(self, pwd):
         """
         Valid password:
@@ -53,9 +53,8 @@ class User():
         if pwd is None or type(pwd) is not str:
             return False
         if self.__password is None:
-            return False     # the mistake was the code compare .lower() pwd with .upper() pwd
+            return False
         return hashlib.md5(pwd.encode()).hexdigest().lower() == self.__password
-
 
 if __name__ == '__main__':
     print("Test User")
