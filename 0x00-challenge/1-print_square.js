@@ -14,8 +14,8 @@ if (process.argv.length <= 2) {
     process.exit(1)
 }
 
-size = parseInt(process.argv[2]) // the mistake was the code parse the int into hexadecimal number
-                                // size = parseInt(process.argv[2])
+size = parseInt(process.argv[2], 10) // the mistake was the code parse the int into hexadecimal number
+                                // size = parseInt(process.argv[2],16)
 
 for (let i = 0 ; i < size ; i ++) {
     for (let j = 0 ; j < size ; j ++) {
